@@ -19,8 +19,8 @@ function Header() {
           {t("About")}
         </Button>
         <Box sx={{ flexGrow: 1 }} />
-        <Button onClick={()=> changeLanguage("fi")} color="inherit">FI</Button>
-        <Button onClick={()=> changeLanguage("en")} color="inherit">EN</Button>
+        <Button id="fi" onClick={()=> changeLanguage("fi")} color="inherit">FI</Button>
+        <Button id="en" onClick={()=> changeLanguage("en")} color="inherit">EN</Button>
       </Toolbar>
     </AppBar>
   );
