@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 function About() {
     const [data, setData] = useState([])
+
+    const { t} = useTranslation();
 
     useEffect(() => {
         let mounted = true;
@@ -21,7 +24,7 @@ function About() {
 
   return (
     <div>
-        <h1>About this website</h1>
+        <h1>{t("AboutInfo")}</h1>
         <ul>
             {data.map((item) => (
                 <li key={item.id}>{item.title}</li>
