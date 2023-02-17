@@ -4,9 +4,19 @@ function About() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((response) => response.json())
-        .then((data) => setData(data));
+        let mounted = true;
+        async function fetchData() {
+            const result = await fetch("https://jsonplaceholder.typicode.com/posts");
+            const jsonData = await result.json();
+            if (mounted) {
+                setData(jsonData)
+            }
+        }
+        fetchData();
+
+        return () => {
+            mounted = false;
+        };
     }, [])
 
   return (
